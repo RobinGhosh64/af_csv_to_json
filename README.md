@@ -11,7 +11,8 @@ Remember, nodejs is asynchronous so the convert method in xformbroker module is 
 
 
 
-ColumnA, ColumnB
+XTrackingNum, LoadId
+
 11,12
 22,21
 
