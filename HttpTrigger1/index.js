@@ -1,5 +1,17 @@
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    var service = require('./sqlserverbroker');
-    await service.exec_sql(context, "select * from dbo.Transactions");
+    var service = require('./xformbroker');
+
+    
+        
+         
+    await service.convert(context,req.body, (err, data) => {
+        if (err) {
+            context.res = {status: 500, body : 'Error in parsing...'}
+            
+        } else {
+           context.res = {body : data}
+        }
+    })
+    
 }
